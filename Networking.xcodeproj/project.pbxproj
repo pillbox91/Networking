@@ -15,6 +15,9 @@
 		3228C7312783374D0096808B /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228C7302783374C0096808B /* UserActionCell.swift */; };
 		3228C73327833C9F0096808B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228C73227833C9F0096808B /* MainViewController.swift */; };
 		32C7EC9027844C4400CD4BC3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */; };
+		32C7EC922784952200CD4BC3 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC912784952200CD4BC3 /* Course.swift */; };
+		32C7EC9427849F6100CD4BC3 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */; };
+		32C7EC962784A2DB00CD4BC3 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		3228C7302783374C0096808B /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		3228C73227833C9F0096808B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		32C7EC912784952200CD4BC3 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
+		32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +68,12 @@
 			children = (
 				3228C71C2783263F0096808B /* AppDelegate.swift */,
 				3228C71E2783263F0096808B /* SceneDelegate.swift */,
-				3228C7302783374C0096808B /* UserActionCell.swift */,
 				3228C73227833C9F0096808B /* MainViewController.swift */,
+				3228C7302783374C0096808B /* UserActionCell.swift */,
+				32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */,
+				32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */,
 				32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */,
+				32C7EC912784952200CD4BC3 /* Course.swift */,
 				3228C7222783263F0096808B /* Main.storyboard */,
 				3228C725278326490096808B /* Assets.xcassets */,
 				3228C727278326490096808B /* LaunchScreen.storyboard */,
@@ -144,8 +153,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32C7EC922784952200CD4BC3 /* Course.swift in Sources */,
+				32C7EC9427849F6100CD4BC3 /* CoursesViewController.swift in Sources */,
 				3228C7312783374D0096808B /* UserActionCell.swift in Sources */,
 				3228C71D2783263F0096808B /* AppDelegate.swift in Sources */,
+				32C7EC962784A2DB00CD4BC3 /* CourseCell.swift in Sources */,
 				32C7EC9027844C4400CD4BC3 /* ImageViewController.swift in Sources */,
 				3228C71F2783263F0096808B /* SceneDelegate.swift in Sources */,
 				3228C73327833C9F0096808B /* MainViewController.swift in Sources */,
