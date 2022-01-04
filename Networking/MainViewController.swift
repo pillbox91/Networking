@@ -15,15 +15,29 @@ enum URLExamples: String {
     case examoleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
 }
 
+enum UserActions: String, CaseIterable {
+    case downloadImage = "Download Image"
+    case exampleOne = "Example One"
+    case exampleTwo = "Example Two"
+    case exampleThree = "Example Three"
+    case exampleFour = "Example Four"
+    case ourCourses = "Our Courses"
+}
+
 class MainViewController: UICollectionViewController {
+    
+    private let userActions = UserActions.allCases
     
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        userActions.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! UserActionCell
+        
+        let userAction = userActions[indexPath.item]
+        cell.userActionLabel.text = userAction.rawValue
         
         return cell
     }
@@ -31,9 +45,37 @@ class MainViewController: UICollectionViewController {
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userAction = userActions[indexPath.item]
+        
+        switch userAction {
+        case .downloadImage: performSegue(withIdentifier: "showImage", sender: nil)
+        case .exampleOne: examleOneButtonPressed()
+        case .exampleTwo: examleTwoButtonPressed()
+        case .exampleThree: examleThreeButtonPressed()
+        case .exampleFour: examleFourButtonPressed()
+        case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
+        }
         
     }
 
+}
+
+extension MainViewController {
+    private func examleOneButtonPressed() {
+        
+    }
+    
+    private func examleTwoButtonPressed() {
+        
+    }
+    
+    private func examleThreeButtonPressed() {
+        
+    }
+    
+    private func examleFourButtonPressed() {
+        
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {

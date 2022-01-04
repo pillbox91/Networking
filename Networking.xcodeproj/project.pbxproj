@@ -14,6 +14,7 @@
 		3228C729278326490096808B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3228C727278326490096808B /* LaunchScreen.storyboard */; };
 		3228C7312783374D0096808B /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228C7302783374C0096808B /* UserActionCell.swift */; };
 		3228C73327833C9F0096808B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3228C73227833C9F0096808B /* MainViewController.swift */; };
+		32C7EC9027844C4400CD4BC3 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3228C72A278326490096808B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3228C7302783374C0096808B /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		3228C73227833C9F0096808B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3228C71E2783263F0096808B /* SceneDelegate.swift */,
 				3228C7302783374C0096808B /* UserActionCell.swift */,
 				3228C73227833C9F0096808B /* MainViewController.swift */,
+				32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */,
 				3228C7222783263F0096808B /* Main.storyboard */,
 				3228C725278326490096808B /* Assets.xcassets */,
 				3228C727278326490096808B /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			files = (
 				3228C7312783374D0096808B /* UserActionCell.swift in Sources */,
 				3228C71D2783263F0096808B /* AppDelegate.swift in Sources */,
+				32C7EC9027844C4400CD4BC3 /* ImageViewController.swift in Sources */,
 				3228C71F2783263F0096808B /* SceneDelegate.swift in Sources */,
 				3228C73327833C9F0096808B /* MainViewController.swift in Sources */,
 			);

@@ -61,8 +61,8 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Main View Controller" id="3iT-KM-rE8"/>
                     <connections>
-                        <segue destination="kJe-kp-pYo" kind="show" id="ZJy-TE-Hxv"/>
-                        <segue destination="PcK-Nj-R0b" kind="show" id="b9a-yr-LwK"/>
+                        <segue destination="kJe-kp-pYo" kind="show" identifier="showImage" id="ZJy-TE-Hxv"/>
+                        <segue destination="PcK-Nj-R0b" kind="show" identifier="showCourses" id="b9a-yr-LwK"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAj-p6-U6N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -150,10 +150,10 @@
             </objects>
             <point key="canvasLocation" x="1642.5" y="397.18309859154931"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="a89-NS-M7P">
             <objects>
-                <viewController id="kJe-kp-pYo" sceneMemberID="viewController">
+                <viewController id="kJe-kp-pYo" customClass="ImageViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UqF-S6-P1J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -161,17 +161,26 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nfk-pw-zHK">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SCc-eH-xOm">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sUX-5q-EA4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Nfk-pw-zHK" firstAttribute="top" secondItem="sUX-5q-EA4" secondAttribute="top" id="D2m-oL-B73"/>
                             <constraint firstItem="Nfk-pw-zHK" firstAttribute="leading" secondItem="sUX-5q-EA4" secondAttribute="leading" id="TNb-xa-gZo"/>
+                            <constraint firstItem="SCc-eH-xOm" firstAttribute="centerY" secondItem="UqF-S6-P1J" secondAttribute="centerY" id="W5J-Ub-J67"/>
+                            <constraint firstItem="SCc-eH-xOm" firstAttribute="centerX" secondItem="UqF-S6-P1J" secondAttribute="centerX" id="dzt-AG-YAX"/>
                             <constraint firstItem="sUX-5q-EA4" firstAttribute="trailing" secondItem="Nfk-pw-zHK" secondAttribute="trailing" id="mwj-8J-jrr"/>
                             <constraint firstItem="sUX-5q-EA4" firstAttribute="bottom" secondItem="Nfk-pw-zHK" secondAttribute="bottom" id="uDG-Nn-G9n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="gZ9-hF-UNs"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="SCc-eH-xOm" id="IiE-12-ETD"/>
+                        <outlet property="imageView" destination="Nfk-pw-zHK" id="bjc-zG-Pyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pcv-FO-BrK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
