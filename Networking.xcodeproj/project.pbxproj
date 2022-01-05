@@ -18,6 +18,7 @@
 		32C7EC922784952200CD4BC3 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC912784952200CD4BC3 /* Course.swift */; };
 		32C7EC9427849F6100CD4BC3 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */; };
 		32C7EC962784A2DB00CD4BC3 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */; };
+		32CBF1532785BCFC00187D4B /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32CBF1522785BCFC00187D4B /* CourseDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		32C7EC912784952200CD4BC3 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		32CBF1522785BCFC00187D4B /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				3228C7302783374C0096808B /* UserActionCell.swift */,
 				32C7EC9327849F6000CD4BC3 /* CoursesViewController.swift */,
 				32C7EC952784A2DB00CD4BC3 /* CourseCell.swift */,
+				32CBF1522785BCFC00187D4B /* CourseDetailViewController.swift */,
 				32C7EC8F27844C4400CD4BC3 /* ImageViewController.swift */,
 				32C7EC912784952200CD4BC3 /* Course.swift */,
 				3228C7222783263F0096808B /* Main.storyboard */,
@@ -160,6 +163,7 @@
 				32C7EC962784A2DB00CD4BC3 /* CourseCell.swift in Sources */,
 				32C7EC9027844C4400CD4BC3 /* ImageViewController.swift in Sources */,
 				3228C71F2783263F0096808B /* SceneDelegate.swift in Sources */,
+				32CBF1532785BCFC00187D4B /* CourseDetailViewController.swift in Sources */,
 				3228C73327833C9F0096808B /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

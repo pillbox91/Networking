@@ -125,18 +125,24 @@
                                                 </stackView>
                                             </subviews>
                                         </stackView>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="fAT-PH-AZJ">
+                                            <rect key="frame" x="40" y="32.5" width="20" height="20"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Bk9-Jm-ZAW" firstAttribute="leading" secondItem="YJ4-7Q-9vk" secondAttribute="trailing" constant="10" id="4MQ-cy-ttW"/>
                                         <constraint firstItem="Bk9-Jm-ZAW" firstAttribute="top" secondItem="Fj8-Zq-0Mj" secondAttribute="topMargin" id="55V-u6-i23"/>
+                                        <constraint firstItem="fAT-PH-AZJ" firstAttribute="centerX" secondItem="YJ4-7Q-9vk" secondAttribute="centerX" id="8AM-qg-9BT"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="Bk9-Jm-ZAW" secondAttribute="bottom" id="8qM-2r-6HH"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Bk9-Jm-ZAW" secondAttribute="trailing" id="Qsc-T2-BKR"/>
+                                        <constraint firstItem="fAT-PH-AZJ" firstAttribute="centerY" secondItem="YJ4-7Q-9vk" secondAttribute="centerY" id="a8T-2p-ogs"/>
                                         <constraint firstAttribute="bottom" secondItem="YJ4-7Q-9vk" secondAttribute="bottom" id="dGb-3p-EKR"/>
                                         <constraint firstItem="YJ4-7Q-9vk" firstAttribute="leading" secondItem="Fj8-Zq-0Mj" secondAttribute="leading" id="eQE-kv-0zj"/>
                                         <constraint firstItem="YJ4-7Q-9vk" firstAttribute="top" secondItem="Fj8-Zq-0Mj" secondAttribute="top" id="qLJ-Bl-Puv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="activityIndicator" destination="fAT-PH-AZJ" id="CFs-Jg-yCN"/>
                                     <outlet property="courseImage" destination="YJ4-7Q-9vk" id="rYX-iP-Phh"/>
                                     <outlet property="courseNameLabel" destination="Ffy-rg-O58" id="y1M-qb-Fdi"/>
                                     <outlet property="numberOfLessons" destination="L6x-Jw-2Y8" id="JTU-PC-FGG"/>
@@ -151,10 +157,81 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="xP8-oK-IDl"/>
+                    <connections>
+                        <segue destination="Yoy-NC-Ned" kind="show" identifier="showDetails" id="X0C-aW-XdL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hF-4E-iR4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1642.5" y="397.18309859154931"/>
+        </scene>
+        <!--Course Detail View Controller-->
+        <scene sceneID="eEQ-5B-bic">
+            <objects>
+                <viewController id="Yoy-NC-Ned" customClass="CourseDetailViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6vG-Vf-980">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="FeZ-IT-feu">
+                                <rect key="frame" x="16" y="284" width="343" height="129.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name of course" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsV-1p-Tf5">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="32.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="27"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lessons" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51N-7F-e07">
+                                        <rect key="frame" x="0.0" y="60.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBk-Oe-DP6">
+                                        <rect key="frame" x="0.0" y="109" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h4L-yk-43S">
+                                <rect key="frame" x="62.5" y="84" width="250" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="9Q9-22-GxS"/>
+                                    <constraint firstAttribute="height" constant="150" id="qqD-go-x4V"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Ehl-4R-IPR">
+                                <rect key="frame" x="169" y="140.5" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cxK-uh-8X4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FeZ-IT-feu" firstAttribute="top" secondItem="h4L-yk-43S" secondAttribute="bottom" constant="50" id="AFq-Mz-s8b"/>
+                            <constraint firstItem="FeZ-IT-feu" firstAttribute="centerY" secondItem="6vG-Vf-980" secondAttribute="centerY" constant="15" id="AMH-JW-ZHx"/>
+                            <constraint firstItem="h4L-yk-43S" firstAttribute="centerY" secondItem="Ehl-4R-IPR" secondAttribute="centerY" id="K5T-V9-a9D"/>
+                            <constraint firstItem="cxK-uh-8X4" firstAttribute="trailing" secondItem="FeZ-IT-feu" secondAttribute="trailing" constant="16" id="P36-mk-wOm"/>
+                            <constraint firstItem="h4L-yk-43S" firstAttribute="centerX" secondItem="Ehl-4R-IPR" secondAttribute="centerX" id="bvV-5a-v6l"/>
+                            <constraint firstItem="FeZ-IT-feu" firstAttribute="leading" secondItem="cxK-uh-8X4" secondAttribute="leading" constant="16" id="pb4-aw-YKj"/>
+                            <constraint firstItem="h4L-yk-43S" firstAttribute="centerX" secondItem="6vG-Vf-980" secondAttribute="centerX" id="uRp-PZ-dKe"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Bb-ED-uxU"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Ehl-4R-IPR" id="WnX-EI-orK"/>
+                        <outlet property="courseImage" destination="h4L-yk-43S" id="O6f-sC-njt"/>
+                        <outlet property="courseNameLabel" destination="vsV-1p-Tf5" id="a3e-hY-ZAA"/>
+                        <outlet property="numberOfLessons" destination="51N-7F-e07" id="FTf-Kv-zCl"/>
+                        <outlet property="numberOfTests" destination="IBk-Oe-DP6" id="RFw-ui-h8t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8S-Zr-wI9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2437.5999999999999" y="396.25187406296857"/>
         </scene>
         <!--Image View Controller-->
         <scene sceneID="a89-NS-M7P">

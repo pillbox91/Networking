@@ -1,36 +1,40 @@
 //
-//  CourseCell.swift
+//  CourseDetailViewController.swift
 //  Networking
 //
-//  Created by Андрей Аверьянов on 04.01.2022.
+//  Created by Андрей Аверьянов on 05.01.2022.
 //
 
 import UIKit
 
-class CourseCell: UITableViewCell {
+class CourseDetailViewController: UIViewController {
     
+    var course: Course!
+
     @IBOutlet var courseImage: UIImageView!
     @IBOutlet var courseNameLabel: UILabel!
     @IBOutlet var numberOfLessons: UILabel!
     @IBOutlet var numberOfTests: UILabel!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         activityIndicator.startAnimating()
         activityIndicator.hidesWhenStopped = true
+        fetchCourse()
     }
     
-    func configure(with course: Course) {
-        courseNameLabel.text = course.name
+    private func fetchCourse() {
+        courseNameLabel.text = "\(course.name ?? "Not Found")"
         numberOfLessons.text = "Number of lessons: \(course.number_of_lessons ?? 0)"
         numberOfTests.text = "Number of tests: \(course.number_of_tests ?? 0)"
         
         DispatchQueue.global().async {
-            guard let stringURL = course.imageUrl else {return}
+            guard let stringURL = self.course.imageUrl else {return}
             guard let imageURL = URL(string: stringURL) else {return}
             guard let imageData = try? Data(contentsOf: imageURL) else {return}
-            
+
             DispatchQueue.main.async {
                 self.courseImage.image = UIImage(data: imageData)
                 self.activityIndicator.stopAnimating()

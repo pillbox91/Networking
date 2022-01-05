@@ -29,6 +29,20 @@ class CoursesViewController: UITableViewController {
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let course = courses[indexPath.row]
+        performSegue(withIdentifier: "showDetails", sender: course)
+    }
+
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailsVC = segue.destination as? CourseDetailViewController else { return }
+        
+        detailsVC.course = sender as? Course
+    }
 
 }
 
