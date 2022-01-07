@@ -13,6 +13,8 @@ enum URLExamples: String {
     case exampleTwo = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
     case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
+    case exampleFive = "https://swiftbook.ru//wp-content/uploads/api/api_courses_capital"
+    case postRequest = "https://jsonplaceholder.typicode.com/posts"
 }
 
 enum UserActions: String, CaseIterable {
@@ -21,7 +23,10 @@ enum UserActions: String, CaseIterable {
     case exampleTwo = "Example Two"
     case exampleThree = "Example Three"
     case exampleFour = "Example Four"
+    case postRequest = "POST Request"
     case ourCourses = "Our Courses"
+    case alamofireGet = "Alamofire GET"
+    case alamofirePost = "Alamofire POST"
 }
 
 class MainViewController: UICollectionViewController {
@@ -52,16 +57,24 @@ class MainViewController: UICollectionViewController {
         case .exampleTwo: examleTwoButtonPressed()
         case .exampleThree: examleThreeButtonPressed()
         case .exampleFour: examleFourButtonPressed()
+        case .postRequest: postRequest()
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
+        case .alamofireGet: performSegue(withIdentifier: "alamofireGet", sender: nil)
+        case .alamofirePost: performSegue(withIdentifier: "alamofirePost", sender: nil)
         }
         
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCourses" {
+        if segue.identifier != "showImage" {
             let courseVC = segue.destination as! CoursesViewController
-            courseVC.fetchCourses()
+            switch segue.identifier {
+            case "showCourses": courseVC.fetchCourses()
+            case "alamofireGet": courseVC.alamofireGetButtonPressed()
+            case "alamofirePost": courseVC.alamofirePostButtonPressed()
+            default: break
+            }
         }
     }
     
@@ -174,6 +187,59 @@ extension MainViewController {
                 DispatchQueue.main.async {
                     self.failedAlert()
                 }
+                print(error)
+            }
+        }.resume()
+    }
+    
+//    private func postRequest() {
+//        guard let url = URL(string: URLExamples.postRequest.rawValue) else {return}
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        let courseData = ["Course" : "Networking", "Lesson" : "GET and POST"]
+//        guard let httpBody = try? JSONSerialization.data(withJSONObject: courseData, options: []) else {return}
+//        request.httpBody = httpBody
+//
+//        URLSession.shared.dataTask(with: request) { data, response, error in
+//            guard let response = response, let data = data else {return}
+//            print(response)
+//
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data, options: [])
+//                print(json)
+//            } catch let error {
+//                print(error)
+//            }
+//        }.resume()
+//    }
+    
+    private func postRequest() {
+        guard let url = URL(string: URLExamples.postRequest.rawValue) else {return}
+
+        let course = CourseData(
+            name: "Networking",
+            imageUrl: "https://swiftbook.ru//wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png",
+            numberOfLessons: "10",
+            numberOfTests: "5")
+
+        guard let httpBody = try? JSONEncoder().encode(course) else {return}
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = httpBody
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let response = response, let data = data else {return}
+            print(response)
+
+            do {
+                let course = try JSONDecoder().decode(CourseData.self, from: data)
+                print(course)
+            } catch let error {
                 print(error)
             }
         }.resume()

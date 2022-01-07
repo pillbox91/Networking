@@ -49,18 +49,31 @@ class CoursesViewController: UITableViewController {
 // MARK: - Networking
 extension CoursesViewController {
     func fetchCourses() {
-        guard let url = URL(string: URLExamples.exampleTwo.rawValue) else {return}
+//        guard let url = URL(string: URLExamples.exampleTwo.rawValue) else {return}
+        guard let url = URL(string: URLExamples.exampleFive.rawValue) else {return}
         
         URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data = data else {return}
             let jsonDecoder = JSONDecoder()
+//            jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
             
             do {
                 self.courses = try jsonDecoder.decode([Course].self, from: data)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } catch let error {
                 print(error.localizedDescription)
             }
             
         }.resume()
+    }
+    
+    func alamofireGetButtonPressed() {
+        
+    }
+    
+    func alamofirePostButtonPressed() {
+        
     }
 }

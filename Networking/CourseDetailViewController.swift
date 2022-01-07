@@ -27,8 +27,8 @@ class CourseDetailViewController: UIViewController {
     
     private func fetchCourse() {
         courseNameLabel.text = "\(course.name ?? "Not Found")"
-        numberOfLessons.text = "Number of lessons: \(course.number_of_lessons ?? 0)"
-        numberOfTests.text = "Number of tests: \(course.number_of_tests ?? 0)"
+        numberOfLessons.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
+        numberOfTests.text = "Number of tests: \(course.numberOfTests ?? 0)"
         
         DispatchQueue.global().async {
             guard let stringURL = self.course.imageUrl else {return}
